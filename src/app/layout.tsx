@@ -33,10 +33,6 @@ export const metadata = {
   },
 };
 
-export async function generateMetadata() {
-  return metadata;
-}
-
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FoodEstablishment',
