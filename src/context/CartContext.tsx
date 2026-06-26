@@ -121,7 +121,7 @@ export function CartDrawer() {
   const handleCheckout = () => {
     const message = `Hello Gems Juice,%0AI want to order:%0A${checkoutMessage}%0A%0ACustomer Name:%0APhone:%0AAddress:%0A`;
     if (typeof window !== "undefined") {
-      window.open(`https://wa.me/6380308836?text=${message}`, "_blank");
+      window.open(`https://wa.me/6383308836?text=${message}`, "_blank");
     }
   };
 
