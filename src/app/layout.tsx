@@ -6,7 +6,7 @@ import './globals.css';
 import Footer from '@/components/Footer';
 
 export const metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'),
+  metadataBase: new URL((process.env.NEXT_PUBLIC_APP_URL || 'https://gemsjuice.vercel.app').replace(/\/+$/, '')),
   title: {
     default: 'Gems Juice & Coffee — Pannamgadu',
     template: '%s | Gems Juice & Coffee',
@@ -18,7 +18,7 @@ export const metadata = {
     title: 'Gems Juice & Coffee — Pannamgadu',
     description:
       "Fresh fruit juices and highway snacks on the Kolkata-Chennai National Highway. Open 06:00 AM - 09:00 PM.",
-    url: 'https://yourdomain.example',
+    url: process.env.NEXT_PUBLIC_APP_URL || 'https://gemsjuice.vercel.app',
     siteName: 'Gems Juice & Coffee',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
     locale: 'en_IN',
@@ -33,11 +33,15 @@ export const metadata = {
   },
 };
 
+export async function generateMetadata() {
+  return metadata;
+}
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FoodEstablishment',
   name: "Gems Juice & Coffee",
-  url: 'https://yourdomain.example',
+  url: 'https://gemsjuice.vercel.app',
   telephone: '+916383308836',
   address: {
     '@type': 'PostalAddress',

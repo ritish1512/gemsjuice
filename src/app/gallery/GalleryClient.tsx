@@ -32,9 +32,9 @@ export default function GalleryClient({ galleryItems }: { galleryItems: GalleryI
 
       <div className="max-w-7xl mx-auto relative z-10">
         <header className="text-center mb-16 max-w-4xl mx-auto">
-          <h2 id="gallery-heading" className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-[#ff7a00] drop-shadow-[0_4px_0_rgba(0,0,0,0.1)] mb-4">
+          <h1 id="gallery-heading" className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-[#ff7a00] drop-shadow-[0_4px_0_rgba(0,0,0,0.1)] mb-4">
             Vibe Gallery
-          </h2>
+          </h1>
           <h2 className="text-xl md:text-2xl font-extrabold text-[#1f4027] uppercase tracking-wide mb-4">
             Fresh Juices, Crispy Snacks, & Cold Beverages in Pannamgadu, Andhra Pradesh
           </h2>

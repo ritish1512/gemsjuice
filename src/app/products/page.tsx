@@ -50,7 +50,7 @@ export default async function ProductsPage() {
 }
 
 export const metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://gemsjuice.vercel.app'),
   title: 'Menu — Gems Juice & Coffee, Pannamgadu',
   description:
     'Fresh fruit juices, milkshakes and highway snacks at Gems Juice & Coffee on the Kolkata-Chennai National Highway (Pannamgadu). Open 06:00 AM - 09:00 PM.',
