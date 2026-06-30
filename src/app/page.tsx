@@ -1,4 +1,6 @@
 import { ImageWrapper } from '@/components/ImageWrap'; 
+import { LiveLocationAndStatus } from '@/components/LiveLocationAndStatus';
+import { TravelerAmenities } from '@/components/TravelerAmenities';
 import Image from 'next/image';
 import Link from 'next/link'; 
 
@@ -39,8 +41,8 @@ export default function Home() {
         {/* Section 1 */}
         <section className="relative h-screen overflow-hidden flex flex-col justify-between md:justify-start items-center p-6 md:p-0"> 
           <div className="w-full"> 
-            <h1 className="head-pop font-alfa text-dominant text-center mt-[45%] md:mt-[6%] text-4xl sm:text-5xl md:text-9xl whitespace-nowrap z-0"> 
-              Have a break</h1> 
+            <h1 className="head-pop font-alfa text-dominant text-center mt-[45%] md:mt-[6%] text-2xl sm:text-5xl md:text-8xl whitespace-nowrap z-0"> 
+              Energise your drive</h1> 
           </div> 
           
           {/* Decorative Images (Hidden on mobile) */} 
@@ -84,14 +86,14 @@ export default function Home() {
                 </div> 
                 <div className='text-slate-900 font-black tracking-tight text-xl md:text-5xl'>Tasty Stuffs</div> 
                 <p className='text-gray-900 text-xs md:text-md font-semibold px-4 md:px-0 line-clamp-3 md:line-clamp-none'>
-                  Let your tongue live its own life without considering you for just a small period.
+                  Freshly prepared, piping hot snacks crafted with strict hygiene standards. The perfect companion for your road trip.
                 </p> 
               </div> 
               
               {/* Button Row */}
               <div className='row-span-1 absolute top-[77%] right-[50%] translate-x-[50%] md:translate-x-0  md:top-[55%] md:right-[12%] w-full md:w-sm space-y-1 md:space-y-2 flex flex-col items-center md:items-start justify-center'> 
                 <div className='rounded-tr-[40%] rounded-bl-[40%] p-4 md:p-6 bg-contrast w-fit shadow-sm shadow-amber-300 border-green-500'> 
-                  <Link href="/snacks" className='font-black tracking-light text-secondary text-lg md:text-2xl'>Order Snack</Link> 
+                  <Link href="/products" className='font-black tracking-light text-secondary text-lg md:text-2xl'>Order Snack</Link> 
                 </div> 
                 <div className='font-semibold text-xs md:text-md text-gray-700'>Don't simply see it, order it</div> 
               </div> 
@@ -107,7 +109,7 @@ export default function Home() {
             {/* Header Area */}
             <div>
               <div className='pt-2 text-4xl md:text-6xl font-alfa tracking-tight mt-15'>Drinks</div> 
-              <p className='text-gray-700 text-xs md:text-md font-semibold ml-1 md:ml-4'>May your body need it</p> 
+              <p className='text-gray-700 text-xs md:text-md font-semibold ml-1 md:ml-4 md:w-90'>100% natural, ice-cold fresh fruit juices and premium dairy blends engineered to restore your energy on the road.</p> 
             </div>
             
             {/* Mobile Viewport Container Constraint */}
@@ -131,7 +133,7 @@ export default function Home() {
               {/* Button Row */}
               <div className='row-span-1 w-[90%] md:w-sm space-y-1 md:space-y-2 z-2 order-4 absolute top-[60%] right-[50%] translate-x-[50%] md:translate-x-0 md:right-[12%] flex flex-col items-center md:items-start justify-center'> 
                 <div className='rounded-tr-[60%] rounded-tl-[40%] rounded-bl-[60%] rounded-br-[40%] p-4 md:p-6 bg-contrast w-fit shadow-sm shadow-amber-300 border-green-500'> 
-                  <Link href="/juice" className='font-black tracking-light text-secondary text-lg md:text-2xl'>Order Drinks</Link> 
+                  <Link href="/products" className='font-black tracking-light text-secondary text-lg md:text-2xl'>Order Drinks</Link> 
                 </div> 
                 <div className='font-semibold text-xs md:text-md text-gray-700'>Don't simply see it, order it</div> 
                 <p className='text-gray-900 text-md font-roboto text-center p-2 border rounded-lg'>Stretch your legs and refresh your soul: grab a real from Gems, ice-cold fresh juice to recharge for the road ahead!</p> 
@@ -143,6 +145,8 @@ export default function Home() {
         </section> 
 
       </ImageWrapper> 
+      <TravelerAmenities/>
+      <LiveLocationAndStatus/>
       <section className="relative w-full py-16 px-6 md:px-12 bg-[#d7f25d] text-[#1c1c1c] overflow-hidden flex flex-col items-center justify-center">
       <div className="relative max-w-6xl w-full text-center">
         {/* Header Section */}
@@ -153,7 +157,7 @@ export default function Home() {
         {/* Call to Action Link */}
         <div className="mb-12">
           <Link 
-            href="#" 
+            href="https://www.google.com/maps/place/Gems+juice+%26+coffee/@13.5113941,80.0912254,16z/data=!4m8!3m7!1s0x3a4d7929da58f32d:0xd3336bab2c4616da!8m2!3d13.5114205!4d80.0936459!9m1!1b1!16s%2Fg%2F11gy29m655?entry=ttu&g_ep=EgoyMDI2MDYyNC4wIKXMDSoASAFQAw%3D%3D" 
             className="inline-block bg-[#1f4027] hover:bg-[#152c1b] text-[#ffffff] font-bold text-lg px-8 py-3 rounded-full shadow-lg transition-all transform hover:scale-105 active:scale-95"
           >
             Review us
@@ -178,6 +182,9 @@ export default function Home() {
               </div>
             </div>
           ))}
+        </div>
+        <div className="text-sm text-slate-500 md:hidden mt-4">
+          Swipe to view more reviews
         </div>
       </div>
     </section>

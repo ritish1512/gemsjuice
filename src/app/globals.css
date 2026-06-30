@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #e0ff69; /* Pure White */
+  --color-background: #e0ff69; 
   --color-dominant: #FF9100;   /* Sunset Orange */
   --color-secondary: #FFD600;  /* Sun Lemon */
   --color-contrast: #1B5E20;   /* Forest Green */

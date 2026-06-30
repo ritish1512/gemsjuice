@@ -72,8 +72,8 @@ export default function ProductsClient({ products }: { products: CartProduct[] }
               <span className={`absolute top-4 right-4 z-20 text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full text-white bg-[#ff7a00]`}>{product.tag}</span>
 
               <div className={`relative w-full h-56 rounded-4xl overflow-hidden mb-6 bg-slate-50 flex items-center justify-center transition-colors duration-300`}>
-                <div className="relative w-40 h-40 group-hover:scale-110 transition-transform duration-500 ease-out">
-                  <Image src={product.src} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-contain" alt={product.name} priority={false} unoptimized/>
+                <div className="relative w-full h-full group-hover:scale-110 transition-transform duration-500 ease-out">
+                  <Image src={product.src} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover" alt={product.name} priority={false} unoptimized/>
                 </div>
               </div>
 

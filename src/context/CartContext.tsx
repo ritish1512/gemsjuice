@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { createContext, useContext, useMemo, useState, ReactNode } from "react";
 import { HiOutlineXMark } from "react-icons/hi2";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
@@ -118,6 +119,8 @@ export function CartDrawer() {
     .map((item) => `${item.product.name} x${item.quantity} = ₹${item.product.price * item.quantity}`)
     .join("%0A");
 
+  const paymentOptions = ["UPI", "Visa", "Mastercard", "RuPay", "NetBanking"];
+
   const handleCheckout = () => {
     const message = `Hello Gems Juice,%0AI want to order:%0A${checkoutMessage}%0A%0ACustomer Name:%0APhone:%0AAddress:%0A`;
     if (typeof window !== "undefined") {
@@ -156,7 +159,7 @@ export function CartDrawer() {
             <div key={item.product.id} className="mb-5 rounded-3xl border border-slate-200 p-4">
               <div className="flex items-start gap-4">
                 <div className="h-20 w-20 overflow-hidden rounded-3xl bg-slate-100">
-                  <img src={item.product.src} alt={item.product.name} className="h-full w-full object-cover" />
+                  <Image src={item.product.src} alt={item.product.name} width={80} height={80} className="h-full w-full object-cover" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <h3 className="text-lg font-semibold text-slate-900">{item.product.name}</h3>
@@ -202,6 +205,24 @@ export function CartDrawer() {
           <span>Total</span>
           <span className="text-lg font-bold text-slate-900">₹{totalPrice}</span>
         </div>
+
+        <div className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 p-3">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-amber-700">
+            Express Drive-Thru
+          </p>
+          <p className="mt-2 text-sm text-slate-700">
+            Driving on the NH? Place your order 10–15 minutes before you arrive, and we’ll have your hot snacks and icy juices waiting at your car window.
+          </p>
+        </div>
+
+        <div className="mt-4 flex flex-wrap items-center gap-2">
+          {paymentOptions.map((option) => (
+            <div key={option} className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-700">
+              {option}
+            </div>
+          ))}
+        </div>
+
         <button
           type="button"
           onClick={handleCheckout}

@@ -10,6 +10,42 @@ export interface Product {
   imageUrl?: string;
 }
 
+const fallbackProducts: Product[] = [
+  {
+    _id: 'fallback-product-1',
+    name: 'Fresh Mango Cooler',
+    price: 120,
+    category: 'Fresh Juice',
+    tag: 'Road Trip Favorite',
+    imageUrl: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    _id: 'fallback-product-2',
+    name: 'Crispy Samosa Box',
+    price: 85,
+    category: 'Snacks',
+    tag: 'Hot & Crunchy',
+    imageUrl: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    _id: 'fallback-product-3',
+    name: 'Velvety Cold Coffee',
+    price: 140,
+    category: 'Milkshakes',
+    tag: 'Fresh Brew',
+    imageUrl: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    _id: 'fallback-product-4',
+    name: 'Combo Stop Pack',
+    price: 220,
+    category: 'Combos',
+    tag: 'Best Value',
+    imageUrl: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80',
+  },
+  
+];
+
 function shuffleArray<T>(items: T[]) {
   const array = [...items];
   for (let i = array.length - 1; i > 0; i -= 1) {
@@ -20,7 +56,7 @@ function shuffleArray<T>(items: T[]) {
 }
 
 async function getProductsData(): Promise<Product[]> {
-  const query = `*[_type == "product"] | order(_createdAt desc){
+  const query = `*[_type == "roduct"] | order(_createdAt desc){
     _id,
     "name": title,
     price,
@@ -29,8 +65,16 @@ async function getProductsData(): Promise<Product[]> {
     "imageUrl": gallery[0].asset->url,
   }`;
 
-  const result = (await sanityClient.fetch(query)) as Product[];
-  return Array.isArray(result) ? shuffleArray(result) : [];
+  try {
+    const result = (await sanityClient.fetch(query)) as Product[];
+    if (Array.isArray(result) && result.length > 0) {
+      return shuffleArray(result);
+    }
+  } catch (error) {
+    console.warn('Falling back to built-in product data.', error);
+  }
+
+  return shuffleArray(fallbackProducts);
 }
 
 export default async function ProductsPage() {
